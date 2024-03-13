@@ -30,7 +30,7 @@ const ArticleDetailsModal: React.FC<IArticleModalProps> = ({
   const handleShareClick = () => {
     const messageToCopy = `Check out this article: ${article?.title} - ${article?.description} ${article?.url}`;
     copy(messageToCopy);
-    message.success("Link copied to clipboard!");
+    message.success("Message copied to clipboard!");
   };
 
   const handleWhatsAppClick = () => {

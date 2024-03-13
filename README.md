@@ -19,3 +19,7 @@ The news sharing app
     - Articles ```/articles``` has the results of the search done in home page, integrated with infinity scroll
     - Bookmarks ```/bookmarks``` contains the bookmarked articles
     - Profile ```/profile```: user profile
+## Extra features implemented
+- Sign up confirmation mail
+- Share to socials with copiable message containing the source link
+- Share to Whatsapp feature
