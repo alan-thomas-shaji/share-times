@@ -1,8 +1,10 @@
 # Share Times
 The news sharing app
-## Prerequisites for setup
-- Supabase API keys
-- News API keys
+## Prerequisites for setup(env variables)
+- Supabase project base url
+- News API base url
+- Supabase API key
+- News API key
 ## Setup
 - Run ```git clone``` to clone the repo
 - Install dependacy libraries using ```npm i ```
