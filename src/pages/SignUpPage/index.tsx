@@ -24,7 +24,7 @@ const SignupPage = () => {
 
       if (signUpData) {
         message.success("Signup successful! Please check your email for verification mail");
-        navigate("/login"); // Redirect to the login page after successful signup
+        navigate("/login"); 
       }
     } catch (error) {
       message.error("An error occurred during signup");

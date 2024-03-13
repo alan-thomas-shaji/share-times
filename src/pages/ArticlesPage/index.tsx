@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import ArticleCard from "../../components/ArticleCard";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { fetchAllNews } from "../../services/api";
-import { IArticleData, IPageData } from "../../types/types";
+import { IArticleData } from "../../types/types";
 import NoSearchQueryError from "../../components/ErrorComponent/NoSearchQueryError";
 import SearchBar from "../../components/SearchBar";
 import { Button, Dropdown, MenuProps, Select, Spin, message } from "antd";
@@ -30,7 +30,7 @@ const ArticlesPage = () => {
     queryFn: ({ pageParam = 1 }) => fetchAllNews(search, sortBy, pageParam),
     getNextPageParam: (lastPage) =>
       lastPage.totalPages > lastPage.page ? lastPage.page + 1 : undefined,
-    initialPageParam: 1, // Provide an initial page parameter
+    initialPageParam: 1,
   });
 
   const handleLogout = async() => { 
@@ -129,7 +129,6 @@ const ArticlesPage = () => {
                   description={newsItem?.description}
                   imageUrl={newsItem?.urlToImage}
                   url={newsItem?.url}
-                  // isPending={isPending}
                 />
               ))}
             </React.Fragment>

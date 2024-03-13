@@ -7,10 +7,7 @@ import { Button, message } from "antd";
 import { DeleteFilled } from "@ant-design/icons";
 
 const BookmarksPage = () => {
-  // const { data: bookmarks } = useQuery("bookmarks", () => fetchBookmarks());
   const {
-    isPending,
-    error,
     data: bookmarksData,
   } = useQuery({
     queryKey: ["bookmarks"],
@@ -41,7 +38,6 @@ const BookmarksPage = () => {
       </div>
       <div className="m-2 flex flex-wrap justify-center">
         {bookmarksData?.map((bookmark: IArticleCardProps, idx: number) => (
-          // <ArticleCard key={idx} {...bookmark} />
           <ArticleCard
             key={idx}
             id={idx}
@@ -49,7 +45,6 @@ const BookmarksPage = () => {
             description={bookmark?.description}
             imageUrl={bookmark?.imageUrl}
             url={bookmark?.url}
-            // isPending={isPending}
           />
         ))}
       </div>

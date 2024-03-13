@@ -1,4 +1,3 @@
-// import { Card } from "antd";
 import Meta from "antd/es/card/Meta";
 import { useNavigate } from "react-router-dom";
 import { IArticleCardProps } from "../../types/types";
@@ -33,9 +32,7 @@ const ArticleCard: React.FC<IArticleCardProps> = ({
     <div className="m-2">
       <Card
         hoverable
-        // onClick={() => navigate(`/articles/${id}`)}
         onClick={handleCardClick}
-        //   style={{ width: '20vw' }}
         className="w-[80vw] md:w-[33vw] lg:w-[20vw]"
         cover={
           <div style={{ height: "200px", overflow: "hidden" }}>

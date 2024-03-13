@@ -1,6 +1,5 @@
-import React from 'react'
 import SearchBar from '../SearchBar';
-import { Dropdown, MenuProps, Select, message } from 'antd';
+import { Dropdown, MenuProps, message } from 'antd';
 import { HeartFilled, LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../utils/supabse';

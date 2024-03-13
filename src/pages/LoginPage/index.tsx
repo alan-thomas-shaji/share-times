@@ -24,9 +24,7 @@ const LoginPage = () => {
 
       if (loginData) {
         message.success("Login successful!");
-        // console.log(loginData);
         navigate("/");
-        // Redirect or perform additional actions after successful login
       }
     } catch (error) {
       message.error("An error occured");

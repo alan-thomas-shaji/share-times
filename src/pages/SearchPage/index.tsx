@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import SearchBar from "../../components/SearchBar";
 import Title from "../../components/Title";
 import { fetchLatestNews } from "../../services/api";
 import { Spin } from "antd";
 import ArticleCard from "../../components/ArticleCard";
 import { IArticleData } from "../../types/types";
 import Header from "../../components/Header";
+import NoSearchQueryError from "../../components/ErrorComponent/NoSearchQueryError";
 
 const SearchPage = () => {
   const {
@@ -22,14 +22,12 @@ const SearchPage = () => {
         <Spin size="large" />
       </div>
     );
+  if (error) return <NoSearchQueryError />;
   return (
     <>
       <div className="mt-6 ml-4 flex">
         <Title />
       </div>
-      {/* <div className="flex justify-center items-center bg-blue-500 py-8 mb-10">
-        <SearchBar />
-      </div> */}
       <Header />
       <div className="m-2 flex flex-wrap justify-center">
         {latestData?.articles?.map((newsItem: IArticleData, idx: number) => (
@@ -40,7 +38,6 @@ const SearchPage = () => {
             description={newsItem?.description}
             imageUrl={newsItem?.urlToImage}
             url={newsItem?.url}
-            // isPending={isPending}
           />
         ))}
       </div>

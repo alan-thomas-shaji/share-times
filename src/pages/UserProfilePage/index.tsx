@@ -11,7 +11,6 @@ const UserprofilePage = () => {
   const navigate = useNavigate();
   const onFinish = async (values: IUserProfileForm) => {
     console.log("Received values:", values);
-    // Handle updating user profile (email and password) here
     try {
       setLoading(true);
       const { data, error } = await supabase.auth.updateUser({
@@ -27,9 +26,7 @@ const UserprofilePage = () => {
 
       if (data) {
         message.success("Profile updated successfully!");
-        // console.log(loginData);
         navigate("/");
-        // Redirect or perform additional actions after successful login
       }
     } catch (error) {
       message.error("An error occured");
@@ -45,7 +42,6 @@ const UserprofilePage = () => {
       </div>
       <div className="flex flex-col items-center justify-center h-fit">
         <div className="text-3xl mt-8 pt-16 pb-8 w-full bg-blue-500 text-white flex justify-center shadow-xl">User Profile</div>
-        {/* <div className="mb-2 mt-6 text-lg font-[400]">Login Settings</div> */}
         <div className="block p-4 rounded-md mb-4 mt-6">
           <div className="mr-4 flex justify-center">
             <Avatar size={96} icon={<UserOutlined />} className="m-8" />
@@ -120,7 +116,6 @@ const UserprofilePage = () => {
             </Form>
           </div>
         </div>
-        {/* <div className="mb-2 text-lg font-[400]">App Settings</div> */}
       </div>
     </>
   );
