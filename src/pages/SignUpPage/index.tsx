@@ -2,18 +2,18 @@ import { useState } from "react";
 import { Input, Button, Form, message } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
 import { IUserProfileForm } from "../../types/types";
-import { supabase } from "../../utils/supabse";
 import { useNavigate } from "react-router-dom";
 import Title from "../../components/Title";
+import { supabase } from "../../utils/supabse";
 
-const LoginPage = () => {
+const SignupPage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const onFinish = async (values: IUserProfileForm) => {
     try {
       setLoading(true);
-      const { data: loginData, error } = await supabase.auth.signInWithPassword({
+      const { data: signUpData, error } = await supabase.auth.signUp({
         email: values.email,
         password: values.password,
       });
@@ -22,14 +22,12 @@ const LoginPage = () => {
         throw error;
       }
 
-      if (loginData) {
-        message.success("Login successful!");
-        // console.log(loginData);
-        navigate("/");
-        // Redirect or perform additional actions after successful login
+      if (signUpData) {
+        message.success("Signup successful! Please check your email for verification mail");
+        navigate("/login"); // Redirect to the login page after successful signup
       }
     } catch (error) {
-      message.error("An error occured");
+      message.error("An error occurred during signup");
     } finally {
       setLoading(false);
     }
@@ -39,7 +37,7 @@ const LoginPage = () => {
     <>
       <div className="flex justify-center items-center h-screen">
         <Form
-          name="loginForm"
+          name="signupForm"
           initialValues={{ remember: true }}
           onFinish={onFinish}
         >
@@ -72,18 +70,13 @@ const LoginPage = () => {
               loading={loading}
               className="w-full bg-blue-500 text-white"
             >
-              Log in
+              Sign up
             </Button>
           </Form.Item>
-          <div className="mt-4">
-            <Button type="link" onClick={() => navigate("/signup")}>
-              Don't have an account? Sign up here
-            </Button>
-          </div>
         </Form>
       </div>
     </>
   );
 };
 
-export default LoginPage;
+export default SignupPage;
